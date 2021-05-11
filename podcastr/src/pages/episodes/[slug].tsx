@@ -5,6 +5,7 @@ import { api } from "../../services/api";
 import { convertDurationToTimeString } from "../../utils/convertDurationToTimeString";
 import styles from "./episode.module.scss"
 import Image from "next/image"
+import Link from 'next/link'
 
 type Episode = {
   id: string;
@@ -26,10 +27,12 @@ export default function Episode({ episode }: EpisodeProps) {
   return(
     <div className={styles.episode}>
       <div className={styles.thumbnailContainer}>
+        <Link href='/'>
         <button type="button">
           <img src="/arrow-left.svg" alt="voltar" />
         </button>
-      <Image src={episode.thumbnail} width={700} height={400} objectFit="cover"/>
+        </Link>
+      <Image src={episode.thumbnail} width={700} height={200} objectFit="cover"/>
       <button type="button">
         <img src="/play.svg" alt="tocar episódio" />
       </button>
